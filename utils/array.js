@@ -65,14 +65,16 @@
         return outer;
     };
 
-    function shuffle(a, b)
-    {
-        return Math.random() > 0.5 ? -1 : 1;
-    }
-
     //shuffles the items in an array;
     proto.shuffle = function(){
-       this.sort(shuffle);
+        var i = this.length, j, temp;
+        if ( i == 0 ) return;
+        while ( --i ) {
+            j = Math.floor( Math.random() * ( i + 1 ) );
+            temp = this[i];
+            this[i] = this[j];
+            this[j] = temp;
+        }
     };
 
     proto.equals = function(array){
