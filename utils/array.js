@@ -61,7 +61,7 @@
     configurable: false
   });
 
-  Object.intersect(proto, 'intersect', {
+  Object.defineProperty(proto, 'intersect', {
     value: function(array) {
       var intersection = [];
       array.forEach(function(item) {
